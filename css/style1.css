@@ -1,0 +1,77 @@
+.bannerText {
+  text-align: center;
+  padding: 200px 0;
+}
+
+/* ---------- INNER WRAPPER ---------- */
+.crossEffect {
+  position: relative;
+  display: inline-block;
+}
+
+/* ---------- TEXT STYLE ---------- */
+.crossEffect h1 {
+  position: relative;
+  display: inline-block;
+  padding: 16px 24px;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+}
+
+/* ---------- HORIZONTAL LINES (on wrapper) ---------- */
+.crossEffect::before,
+.crossEffect::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 3px;
+  width: 0;
+  background: rgb(0, 245, 0);
+  transition: width 0.45s ease;
+}
+
+/* Left line */
+.crossEffect::before {
+  right: 100%; /* stick to left edge of text */
+}
+
+/* Right line */
+.crossEffect::after {
+  left: 100%;  /* stick to right edge of text */
+}
+
+/* ---------- VERTICAL LINES (on h1 itself) ---------- */
+.crossEffect h1::before,
+.crossEffect h1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 0;
+  background: rgb(9, 255, 0);
+  transition: height 0.45s ease;
+}
+
+/* Top line */
+.crossEffect h1::before {
+  bottom: 100%;   /* start at top edge */
+}
+
+/* Bottom line */
+.crossEffect h1::after {
+  top: 100%; /* start at bottom edge */
+}
+
+/* ---------- Hover Animation ---------- */
+.crossEffect:hover::before,
+.crossEffect:hover::after {
+  width: 110px; /* horizontal lines expand outward */
+}
+
+.crossEffect:hover h1::before,
+.crossEffect:hover h1::after {
+  height: 110px; /* vertical lines expand outward */
+}
